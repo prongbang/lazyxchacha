@@ -21,6 +21,30 @@ BenchmarkDecrypt-10    	 1706475	       695.0 ns/op	     576 B/op	       4 alloc
 
 ### How to use
 
+- Generate KeyPair
+
+```go
+keyPair := lazyxchacha.NewKeyPair()
+```
+
+- Key Exchange
+
+```go
+// Generate KeyPair
+clientKp := lazyxchacha.NewKeyPair()
+serverKp := lazyxchacha.NewKeyPair()
+
+serverKx := serverKp.Exchange(clientKp.Pk)
+clientKx := clientKp.Exchange(serverKp.Pk)
+```
+
+- Shared Key
+
+```go
+serverSharedKey, _ := serverKx.Secret()
+clientSharedKey, _ := clientKx.Secret()
+```
+
 - Encrypt
 
 ```go
