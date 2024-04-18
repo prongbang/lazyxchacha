@@ -1,10 +1,16 @@
 # lazyxchacha
 
-Lazy XChaCha20-Poly1305 in golang.
+Lazy XChaCha20-Poly1305 in golang base on [golang.org/x/crypto](golang.org/x/crypto).
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/prongbang/lazyxchacha)](https://goreportcard.com/report/github.com/prongbang/lazyxchacha)
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/prongbang)
+
+### Algorithm details
+
+- Key exchange: X25519
+- Encryption: XChaCha20
+- Authentication: Poly1305
 
 ### Install
 
