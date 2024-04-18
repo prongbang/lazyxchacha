@@ -16,7 +16,7 @@ go get github.com/prongbang/lazyxchacha
 
 ```shell
 BenchmarkEncrypt-10    	 1220955	       984.5 ns/op	     944 B/op	       5 allocs/op
-BenchmarkDecrypt-10    	 1706475	       695.0 ns/op	     576 B/op	       4 allocs/op
+BenchmarkDecrypt-10    	 1717482	       696.1 ns/op	     576 B/op	       4 allocs/op
 ```
 
 ### How to use
@@ -49,7 +49,8 @@ clientSharedKey, _ := clientKx.Secret()
 
 ```go
 lazyXchacha := lazyxchacha.New()
-key, _ := lazyXchacha.RandomKey()
+sharedKey, _ := clientKx.Secret()
+key, _ := hex.DecodeString(sharedKey)
 plaintext := "text"
 ciphertext, err := lazyXchacha.Encrypt(plaintext, key)
 ```
@@ -58,7 +59,8 @@ ciphertext, err := lazyXchacha.Encrypt(plaintext, key)
 
 ```go
 lazyXchacha := lazyxchacha.New()
-key := "e7de22e8"
+sharedKey, _ := serverKx.Secret()
+key, _ := hex.DecodeString(sharedKey)
 ciphertext := "f6a1bd8"
 plaintext, err := lazyXchacha.Decrypt(ciphertext, key)
 ```
