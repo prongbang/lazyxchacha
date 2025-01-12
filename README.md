@@ -21,8 +21,13 @@ go get github.com/prongbang/lazyxchacha
 ### Benchmark
 
 ```shell
-BenchmarkEncrypt-10    	 1220955	       984.5 ns/op	     944 B/op	       5 allocs/op
-BenchmarkDecrypt-10    	 1717482	       696.1 ns/op	     576 B/op	       4 allocs/op
+goos: darwin
+goarch: arm64
+cpu: Apple M4 Pro
+BenchmarkEncrypt-12         	 1882269	       621.3 ns/op
+BenchmarkDecrypt-12         	 2717778	       432.8 ns/op
+BenchmarkEncryptBytes-12    	 2503562	       471.8 ns/op
+BenchmarkDecryptBytes-12    	 3929430	       301.2 ns/op
 ```
 
 ### How to use
